@@ -1,0 +1,334 @@
+/* global styles */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: -apple-system, blinkmacsystemfont, "segoe ui", roboto, "helvetica neue", arial, sans-serif;
+  background-color: #091124;
+  color: #e8e8e8;
+}
+
+/* main container with two-column layout */
+.container {
+  display: grid;
+  grid-template-columns: 0.45fr 0.55fr;
+  height: 100vh;
+  gap: 0;
+}
+
+/* left column: portrait image with overlay */
+.left-column {
+  position: relative;
+  overflow: hidden;
+  background-color: #fcf3f3;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.portrait-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* text overlay on bottom-left of image */
+.text-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 30px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.name {
+  margin: 0 0 20px 0;
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.1;
+}
+
+.tagline {
+  margin: 0;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.4;
+  max-width: 350px;
+}
+
+/* right column: dark navy panel */
+.right-column {
+  background-color: #03132f;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 0;
+}
+
+/* top section: about and facts */
+.top-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  padding: 40px;
+  background-color: #122138;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-heading {
+  margin: 0 0 20px 0;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #f4a460;
+}
+
+.about-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #e8e5e5;
+}
+
+/* facts block with dividers */
+.facts-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.fact-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 30px;
+  padding: 12px 0;
+  border-bottom: 1px solid #2a3a52;
+  align-items: center;
+}
+
+.fact-row:last-child {
+  border-bottom: none;
+}
+
+.fact-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.fact-value {
+  font-size: 14px;
+  color: #ffffff;
+  text-align: right;
+}
+
+/* computer literacy circles */
+.circles {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #7cfc00;
+  display: inline-block;
+}
+
+/* lower section: tasks, feelings, influences, pain points, goals */
+.lower-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 40px;
+  flex: 1;
+}
+
+.column-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.secondary-column {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.content-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.block-heading {
+  margin: 0 0 15px 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #f4a460;
+}
+
+.bullet-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bullet-list li {
+  margin: 0 0 12px 0;
+  padding-left: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #e8e8e8;
+  position: relative;
+}
+
+.bullet-list li::before {
+  content: "●";
+  position: absolute;
+  left: 0;
+  color: #7cfc00;
+  font-size: 12px;
+}
+
+.bullet-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* full-width block for goals */
+.full-width-block {
+  display: flex;
+  flex-direction: column;
+}
+
+/* responsive design for tablets and smaller screens */
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .left-column {
+    min-height: 400px;
+  }
+
+  .right-column {
+    overflow-y: visible;
+  }
+
+  .top-section {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 30px;
+  }
+
+  .lower-section {
+    padding: 30px;
+  }
+
+  .column-pair {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+}
+
+/* responsive design for mobile */
+@media (max-width: 640px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .left-column {
+    min-height: 300px;
+  }
+
+  .text-overlay {
+    padding: 30px 20px;
+  }
+
+  .name {
+    font-size: 40px;
+    margin-bottom: 15px;
+  }
+
+  .tagline {
+    font-size: 16px;
+  }
+
+  .top-section {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .lower-section {
+    padding: 20px;
+  }
+
+  .column-pair {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .fact-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .fact-value,
+  .circles {
+    justify-content: flex-start;
+  }
+
+  .section-heading,
+  .block-heading {
+    font-size: 12px;
+  }
+
+  .about-text,
+  .bullet-list li {
+    font-size: 13px;
+  }
+}
+
+/* prevent horizontal scrollbar */
+body,
+html {
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 100vw;
+}
